@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	va_start(_printf_arg, format);
 	tot_string_counter = 0;
 	if (format == NULL)
-		return (1);
+		return (-1);
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -40,8 +40,10 @@ int _printf(const char *format, ...)
 				case 's':
 					string_holder = va_arg(_printf_arg, char *);
 					if (string_holder != NULL)
+					{
 						write(STDOUT_FILENO, string_holder, strlen(string_holder));
-					tot_string_counter += strlen(string_holder);
+						tot_string_counter += strlen(string_holder);
+					}
 					break;
 				case '%':
 					write(STDOUT_FILENO, format, 1);
