@@ -39,11 +39,8 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					string_holder = va_arg(_printf_arg, char *);
-					if (string_holder != NULL)
-					{
-						write(STDOUT_FILENO, string_holder, strlen(string_holder));
-						tot_string_counter += strlen(string_holder);
-					}
+					write(STDOUT_FILENO, string_holder, strlen(string_holder));
+					tot_string_counter += strlen(string_holder);
 					break;
 				case '%':
 					write(STDOUT_FILENO, "%%", 1);
