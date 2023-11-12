@@ -50,9 +50,11 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
+		{
 			write(STDOUT_FILENO, format, 1);
+			tot_string_counter++;
+		}
 		format++;
-		tot_string_counter++;
 	}
 	va_end(_printf_arg);
 	return ((int)(tot_string_counter));
