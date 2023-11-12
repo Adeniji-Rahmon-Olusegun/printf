@@ -48,8 +48,11 @@ int _printf(const char *format, ...)
 					break;
 			}
 		}
-		write(STDOUT_FILENO, format, 1);
-		tot_string_counter++;
+		else
+		{
+			write(STDOUT_FILENO, format, 1);
+			tot_string_counter++;
+		}
 		format++;
 	}
 	va_end(_printf_arg);
