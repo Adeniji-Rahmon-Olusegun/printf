@@ -59,5 +59,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(_printf_arg);
-	return ((int)(tot_string_counter));
+	return ((int)tot_string_counter);
 }
