@@ -16,7 +16,7 @@
 
 int _printf(const char *format, ...)
 {
-	char ch ch1;
+	char ch;
 	char *string_holder;
 	size_t tot_string_counter;
 	va_list _printf_arg;
@@ -42,15 +42,14 @@ int _printf(const char *format, ...)
 						write(STDOUT_FILENO, string_holder, strlen(string_holder));
 					tot_string_counter += strlen(string_holder);
 					break;
-				default:
+				case '%':
+					write(STDOUT_FILENO, format, 1);
+					tot_string_counter++;
 					break;
 			}
 		}
 		else
-		{
-			ch1 = *format;
-			write(STDOUT_FILENO, &ch, 1);
-		}
+			write(STDOUT_FILENO, format, 1);
 		format++;
 		tot_string_counter++;
 	}
