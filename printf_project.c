@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 					}
 					break;
 				case '%':
-					write(STDOUT_FILENO, format, 1);
+					write(STDOUT_FILENO, "%%", 1);
 					tot_string_counter++;
 					break;
 			}
