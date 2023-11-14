@@ -60,7 +60,10 @@ int printString(char *string)
 
 int printStringS(char *string)
 {
+	char zero;
 	int counter;
+
+	zero = '0';
 
         if (string == NULL)
         {
@@ -79,7 +82,8 @@ int printStringS(char *string)
                         if (((0 <= (int)*string) && ((int)*string <= 32)) || ((int)*string >= 127))
 			{
 				write(STDOUT_FILENO, "\\", 1);
-				write(STDOUT_FILENO, "x", 2);
+				write(STDOUT_FILENO, "x", 1);
+				write(STDOUT_FILENO, &zero, 1);
 				counter += printDigitX((int)*string, 16) + 2;
 			}
 			else
