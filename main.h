@@ -12,4 +12,5 @@ int printChar(int c);
 int printString(char *string);
 int printDigit(long number, int base);
 int printDigitX(long number, int base);
+int printStringS(char *string);
 #endif

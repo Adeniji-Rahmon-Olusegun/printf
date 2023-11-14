@@ -48,3 +48,45 @@ int printString(char *string)
 
 	return (counter);
 }
+
+/**
+ * printStringS - prints character and
+ * non-printable characters
+ *
+ * @string: strings of character
+ *
+ * Return: length of string
+ */
+
+int printStringS(char *string)
+{
+	int counter;
+
+        if (string == NULL)
+        {
+                string = "(null)";
+
+                while (*string != '\0')
+                {
+                        counter += printChar(*string);
+                        string++;
+                }
+        }
+        else
+        {
+                while (*string != '\0')
+                {
+                        if (((0 <= (int)*string) && ((int)*string <= 32)) || ((int)*string >= 127))
+			{
+				write(STDOUT_FILENO, "\\", 1);
+				write(STDOUT_FILENO, "x", 2);
+				counter += printDigitX((int)*string, 16) + 2;
+			}
+			else
+				counter += printChar((int)*string);
+                        
+			string++;
+                }
+        }
+        return (counter);
+}
