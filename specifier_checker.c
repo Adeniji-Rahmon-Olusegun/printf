@@ -26,7 +26,7 @@ int specifier_checker(char f_spec, va_list anything_arg)
 		counter += printDigit((long)(va_arg(anything_arg, int)), 10);
 	else if (f_spec == 'x')
 		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 16);
-	else
+	else if (f_spec == '%')
 		counter += write(STDOUT_FILENO, &f_spec, 1);
 	return (counter);
 }
