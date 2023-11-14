@@ -27,11 +27,23 @@ int printString(char *string)
 
 	counter = 0;
 
-	while (*string != '\0')
+	if (string == NULL)
 	{
-		printChar((int)*string);
-		string++;
-		counter++;
+		string = "(null)";
+
+		while (*string != '\0')
+		{
+			counter += printChar(*string);
+			string++;
+		}
+	}
+	else
+	{
+		while (*string != '\0')
+		{
+			counter += printChar((int)*string);
+			string++;
+		}
 	}
 
 	return (counter);

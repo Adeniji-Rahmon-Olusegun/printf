@@ -10,4 +10,5 @@ int _printf(const char *format, ...);
 int specifier_checker(char f_char, va_list anything_arg);
 int printChar(int c);
 int printString(char *string);
+int printDigit(long number, int base);
 #endif
