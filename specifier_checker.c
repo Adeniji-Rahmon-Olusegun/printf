@@ -28,6 +28,8 @@ int specifier_checker(char f_spec, va_list anything_arg)
 		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 16);
 	else if (f_spec == '%')
 		counter += printChar('%');
+	else if (f_spec == 'b')
+		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 2);
 	else
 	{
 		counter += printChar('%');
