@@ -22,7 +22,7 @@ int main(void)
 	printf("Negative:[%d]\n", -762534);
 	printf("============================\n");
 	/*len3 = _printf("%");*/
-	_printf("%");
-	printf("%");
+	_printf("fdg%\n");
+	printf("fdg%\n");
 	return (0);
 }
