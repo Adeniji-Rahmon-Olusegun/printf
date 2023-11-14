@@ -30,6 +30,12 @@ int specifier_checker(char f_spec, va_list anything_arg)
 		counter += printChar('%');
 	else if (f_spec == 'b')
 		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 2);
+	else if (f_spec == 'u')
+		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 10);
+	else if (f_spec == 'o')
+		counter += printDigit((long)(va_arg(anything_arg, unsigned int)), 8);
+	else if (f_spec == 'X')
+		counter += printDigitX((long)(va_arg(anything_arg, unsigned int)), 16);
 	else
 	{
 		counter += printChar('%');
