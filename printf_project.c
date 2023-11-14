@@ -16,45 +16,23 @@
 
 int _printf(const char *format, ...)
 {
-	char ch;
-	char *string_holder;
-	size_t tot_string_counter;
-	va_list _printf_arg;
+	va_list anything_arg;
+	int char_count;
 
-	va_start(_printf_arg, format);
-	tot_string_counter = 0;
-	if (format == NULL)
-		return (-1);
+	va_start(anything_arg, format);
+	char_count = 0;
+
 	while (*format != '\0')
 	{
 		if (*format == '%')
-		{
-			format++;
-			switch (*format)
-			{
-				case 'c':
-					ch = va_arg(_printf_arg, int);
-					write(STDOUT_FILENO, &ch, 1);
-					tot_string_counter++;
-					break;
-				case 's':
-					string_holder = va_arg(_printf_arg, char *);
-					write(STDOUT_FILENO, string_holder, strlen(string_holder));
-					tot_string_counter += strlen(string_holder);
-					break;
-				case '%':
-					write(STDOUT_FILENO, "%%", 1);
-					tot_string_counter++;
-					break;
-			}
-		}
+			char_count += specifier_checker(*(++format), anything_arg);
 		else
-		{
-			write(STDOUT_FILENO, format, 1);
-			tot_string_counter++;
-		}
+			char_count += write(STDOUT_FILENO, format, 1);
 		format++;
 	}
-	va_end(_printf_arg);
-	return ((int)tot_string_counter);
+
+	va_end(anything_arg);
+
+	return (char_count);
+
 }
