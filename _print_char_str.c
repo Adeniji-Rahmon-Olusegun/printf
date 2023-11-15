@@ -64,7 +64,6 @@ int printStringS(char *string)
 	int counter;
 	int temp_var;
 
-	zero = '0';
 	counter = 0;
 
         if (string == NULL)
@@ -91,11 +90,10 @@ int printStringS(char *string)
 
 				if (temp_var < 16)
 				{
-					write(STDOUT_FILENO, &zero, 1);
-					counter += printDigitX((int)*string, 16);
+					write(STDOUT_FILENO, "0", 1);
 				}
-				else
-					counter += printDigitX((int)*string, 16);
+				
+				counter += printDigitX((int)*string, 16);
 			}
 			else
 				counter += printChar((int)*string);
