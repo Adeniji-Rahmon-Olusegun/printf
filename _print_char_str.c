@@ -79,10 +79,11 @@ int printStringS(char *string)
         {
                 while (*string != '\0')
                 {
-                        if (((0 <= (int)*string) && ((int)*string <= 32)) || ((int)*string >= 127))
+                        if (((0 < (int)*string) && ((int)*string < 32)) || ((int)*string >= 127))
 			{
 				write(STDOUT_FILENO, "\\", 1);
 				write(STDOUT_FILENO, "x", 1);
+
 				write(STDOUT_FILENO, &zero, 1);
 				counter += printDigitX((int)*string, 16) + 2;
 			}
