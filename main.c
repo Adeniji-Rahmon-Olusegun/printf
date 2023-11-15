@@ -10,7 +10,12 @@
 
 int main(void)
 {
-	_printf("%S\n", "Best\tSchool");
+	void *addr;
+
+	addr = (void *)0x7ffe637541f0;
+
+	_printf("Address:[%p]\n", addr);
+	printf("Address:[%p]\n", addr);
 	return (0);
 }
 

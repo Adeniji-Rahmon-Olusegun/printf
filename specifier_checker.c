@@ -38,6 +38,8 @@ int specifier_checker(char f_spec, va_list anything_arg)
 		counter += printDigitX((long)(va_arg(anything_arg, unsigned int)), 16);
 	else if (f_spec == 'S')
 		counter += printStringS(va_arg(anything_arg, char *));
+	else if (f_spec == 'p')
+		counter += printAddressHex(va_arg(anything_arg, void *));
 	else
 	{
 		counter += printChar('%');

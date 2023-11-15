@@ -65,6 +65,7 @@ int printStringS(char *string)
 	int temp_var;
 
 	zero = '0';
+	counter = 0;
 
         if (string == NULL)
         {
