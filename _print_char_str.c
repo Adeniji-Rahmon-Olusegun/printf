@@ -62,6 +62,7 @@ int printStringS(char *string)
 {
 	char zero;
 	int counter;
+	int temp_var;
 
 	zero = '0';
 
@@ -83,9 +84,17 @@ int printStringS(char *string)
 			{
 				write(STDOUT_FILENO, "\\", 1);
 				write(STDOUT_FILENO, "x", 1);
+				counter += 2;
+				
+				temp_var = (int)*string;
 
-				write(STDOUT_FILENO, &zero, 1);
-				counter += printDigitX((int)*string, 16) + 2;
+				if (temp_var < 16)
+				{
+					write(STDOUT_FILENO, &zero, 1);
+					counter += printDigitX((int)*string, 16);
+				}
+				else
+					counter += printDigitX((int)*string, 16);
 			}
 			else
 				counter += printChar((int)*string);
