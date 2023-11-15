@@ -15,7 +15,7 @@ int printAddressHex(void *pointer)
 	char *null_str;
 	
 	counter = 0;
-	null_str = "(null)";
+	null_str = "(nil)";
 
 	if (pointer == NULL)
 	{
