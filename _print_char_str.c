@@ -60,7 +60,6 @@ int printString(char *string)
 
 int printStringS(char *string)
 {
-	char zero;
 	int counter;
 	int temp_var;
 
@@ -92,7 +91,7 @@ int printStringS(char *string)
 				{
 					write(STDOUT_FILENO, "0", 1);
 				}
-				
+
 				counter += printDigitX((int)*string, 16);
 			}
 			else
